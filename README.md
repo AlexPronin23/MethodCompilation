@@ -244,7 +244,7 @@ factor → LPAREN expression RPAREN
 factor → MINUS factor
 ```
 
-## 5. Устранение левой рекурсии
+##  Устранение левой рекурсии
 
 Левая рекурсия — это когда нетерминал стоит в начале своей же правой части:
 
@@ -361,4 +361,99 @@ factor          → MINUS factor
 
 ---
 
-### 3. Нестрогая нормальная форма Грейбах (ННФГ)
+## 3. Нестрогая нормальная форма Грейбах (ННФГ)
+
+Нестрогая нормальная форма Грейбах (ННФГ) — это такой вид записи грамматики, при котором каждое правило обязано начинаться с терминала (лексемы), либо быть пустым (ε).
+Чтобы привести грамматику к этому виду, используется следующий приём: если правило имеет вид A → B α, где первый символ B является нетерминалом, то B заменяется на все его правые части поочерёдно. Процесс повторяется до тех пор, пока ни одно правило не будет начинаться с нетерминала.
+В нашей грамматике, полученной после устранения левой рекурсии, правила начинающиеся с нетерминала встречаются в следующих случаях:
+
+```
+statement  → assignment | if_statement | while_statement | ...
+assignment → variable ASSIGN expression SEMICOLON
+variable   → ID | ID LBRACKET expression RBRACKET
+condition  → expression rel_op expression
+expression → term expression'
+term       → factor term'
+factor     → variable | NUMBER | LPAREN expression RPAREN | MINUS factor
+
+```
+
+### Итоговая грамматика в ННФГ
+
+```
+program → statement_list
+
+statement_list → statement statement_list
+statement_list → ε
+
+statement → ID statement_tail
+statement → IF LPAREN condition RPAREN block else_part
+statement → WHILE LPAREN condition RPAREN block
+statement → READ LPAREN ID read_tail RPAREN SEMICOLON
+statement → WRITE LPAREN expression RPAREN SEMICOLON
+statement → LBRACE statement_list RBRACE
+
+statement_tail → ASSIGN expression SEMICOLON
+statement_tail → LBRACKET expression RBRACKET ASSIGN expression SEMICOLON
+
+block → LBRACE statement_list RBRACE
+
+else_part → ELSE LBRACE statement_list RBRACE
+else_part → ε
+
+read_tail → LBRACKET expression RBRACKET
+read_tail → ε
+
+condition → ID condition_tail
+condition → NUMBER rel_op expression
+condition → LPAREN expression RPAREN rel_op expression
+condition → MINUS factor term' rel_op expression
+
+condition_tail → LBRACKET expression RBRACKET rel_op expression
+condition_tail → rel_op expression
+
+rel_op → LT
+rel_op → GT
+rel_op → LE
+rel_op → GE
+rel_op → EQ
+rel_op → NE
+
+expression → ID expression_var_tail
+expression → NUMBER term' expression'
+expression → LPAREN expression RPAREN term' expression'
+expression → MINUS factor term' expression'
+
+expression_var_tail → LBRACKET expression RBRACKET term' expression'
+expression_var_tail → term' expression'
+
+expression' → PLUS ID expression_var_tail
+expression' → PLUS NUMBER term' expression'
+expression' → PLUS LPAREN expression RPAREN term' expression'
+expression' → PLUS MINUS factor term' expression'
+expression' → MINUS ID expression_var_tail
+expression' → MINUS NUMBER term' expression'
+expression' → MINUS LPAREN expression RPAREN term' expression'
+expression' → MINUS MINUS factor term' expression'
+expression' → ε
+
+term' → MUL ID term_var_tail
+term' → MUL NUMBER term'
+term' → MUL LPAREN expression RPAREN term'
+term' → MUL MINUS factor term'
+term' → DIV ID term_var_tail
+term' → DIV NUMBER term'
+term' → DIV LPAREN expression RPAREN term'
+term' → DIV MINUS factor term'
+term' → ε
+
+term_var_tail → LBRACKET expression RBRACKET term'
+term_var_tail → term'
+
+factor → ID
+factor → ID LBRACKET expression RBRACKET
+factor → NUMBER
+factor → LPAREN expression RPAREN
+factor → MINUS factor
+
+```
