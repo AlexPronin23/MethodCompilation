@@ -247,3 +247,121 @@ factor → variable
 factor → LPAREN expression RPAREN
 factor → MINUS factor
 ```
+
+## 5. Устранение левой рекурсии
+
+Левая рекурсия — это когда нетерминал стоит в начале своей же правой части:
+
+
+### Формула устранения
+
+```
+A → A α         A → β A'
+A → β     →     A' → α A'
+                A' → ε
+```
+
+Всё что было «хвостом» после рекурсии (α) уходит в новый нетерминал A',
+который повторяет себя или заканчивается пустым (ε).
+
+---
+
+### expression
+
+Было:
+```
+expression → expression PLUS term
+expression → expression MINUS term
+expression → term
+```
+
+Стало:
+```
+expression  → term expression'
+expression' → PLUS term expression'
+expression' → MINUS term expression'
+expression' → ε
+```
+
+### term
+
+Было:
+```
+term → term MUL factor
+term → term DIV factor
+term → factor
+```
+
+Стало:
+```
+term  → factor term'
+term' → MUL factor term'
+term' → DIV factor term'
+term' → ε
+```
+
+### statement_list
+
+```
+statement_list → statement statement_list
+statement_list → ε
+```
+
+> Рекурсия **правая** — `statement_list` стоит в конце. Правая рекурсия
+> для магазинного автомата не проблема, не трогаем.
+
+---
+
+### Полная грамматика после устранения левой рекурсии
+
+```
+program         → statement_list
+
+statement_list  → statement statement_list
+statement_list  → ε
+
+statement       → assignment
+statement       → if_statement
+statement       → while_statement
+statement       → read_statement
+statement       → write_statement
+statement       → block
+
+assignment      → variable ASSIGN expression SEMICOLON
+
+variable        → ID
+variable        → ID LBRACKET expression RBRACKET
+
+block           → LBRACE statement_list RBRACE
+
+if_statement    → IF LPAREN condition RPAREN block else_part
+else_part       → ELSE block
+else_part       → ε
+
+while_statement → WHILE LPAREN condition RPAREN block
+
+read_statement  → READ LPAREN variable RPAREN SEMICOLON
+write_statement → WRITE LPAREN expression RPAREN SEMICOLON
+
+condition       → expression rel_op expression
+
+rel_op          → LT | GT | LE | GE | EQ | NE
+
+expression      → term expression'
+expression'     → PLUS term expression'
+expression'     → MINUS term expression'
+expression'     → ε
+
+term            → factor term'
+term'           → MUL factor term'
+term'           → DIV factor term'
+term'           → ε
+
+factor          → NUMBER
+factor          → variable
+factor          → LPAREN expression RPAREN
+factor          → MINUS factor
+```
+
+---
+
