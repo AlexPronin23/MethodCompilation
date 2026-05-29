@@ -9,31 +9,36 @@
 | 1 | `ID` | `x`, `abc`, `a1` | Имя переменной или массива |
 | 2 | `NUMBER` | `42`, `7` | Целое число |
 | 3 | `STRING` | `"hello"` | Строковый литерал |
-| 4 | `PLUS` | `+` | Сложение |
-| 5 | `MINUS` | `-` | Вычитание |
-| 6 | `MUL` | `*` | Умножение |
-| 7 | `DIV` | `/` | Деление |
-| 8 | `ASSIGN` | `:=` | Присваивание |
-| 9 | `SEMICOLON` | `;` | Конец оператора |
-| 10 | `LPAREN` | `(` | Левая круглая скобка |
-| 11 | `RPAREN` | `)` | Правая круглая скобка |
-| 12 | `LBRACE` | `{` | Начало блока |
-| 13 | `RBRACE` | `}` | Конец блока |
-| 14 | `LBRACKET` | `[` | Начало индекса массива |
-| 15 | `RBRACKET` | `]` | Конец индекса массива |
-| 16 | `LT` | `<` | Меньше |
-| 17 | `GT` | `>` | Больше |
-| 18 | `LE` | `<=` | Меньше или равно |
-| 19 | `GE` | `>=` | Больше или равно |
-| 20 | `EQ` | `=` | Равно |
-| 21 | `NE` | `<>` | Не равно |
-| 22 | `IF` | `if` | Ключевое слово if |
-| 23 | `ELSE` | `else` | Ключевое слово else |
-| 24 | `WHILE` | `while` | Ключевое слово while |
-| 25 | `READ` | `read` | Оператор ввода |
-| 26 | `WRITE` | `write` | Оператор вывода |
-| 27 | `ARRAY` | `array` | Объявление массива |
-| 28 | `EOF` | — | Конец файла/программы |
+| 4 | `QUOTE` | `"` | Кавычка — ограничитель строки |
+| 5 | `PLUS` | `+` | Сложение |
+| 6 | `MINUS` | `-` | Вычитание |
+| 7 | `MUL` | `*` | Умножение |
+| 8 | `DIV` | `/` | Деление |
+| 9 | `ASSIGN` | `:=` | Присваивание |
+| 10 | `SEMICOLON` | `;` | Конец оператора |
+| 11 | `LPAREN` | `(` | Левая круглая скобка |
+| 12 | `RPAREN` | `)` | Правая круглая скобка |
+| 13 | `LBRACE` | `{` | Начало блока |
+| 14 | `RBRACE` | `}` | Конец блока |
+| 15 | `LBRACKET` | `[` | Начало индекса массива |
+| 16 | `RBRACKET` | `]` | Конец индекса массива |
+| 17 | `LT` | `<` | Меньше |
+| 18 | `GT` | `>` | Больше |
+| 19 | `LE` | `<=` | Меньше или равно |
+| 20 | `GE` | `>=` | Больше или равно |
+| 21 | `EQ` | `=` | Равно |
+| 22 | `NE` | `<>` | Не равно |
+| 23 | `IF` | `if` | Ключевое слово if |
+| 24 | `ELSE` | `else` | Ключевое слово else |
+| 25 | `WHILE` | `while` | Ключевое слово while |
+| 26 | `READ` | `read` | Оператор ввода |
+| 27 | `WRITE` | `write` | Оператор вывода |
+| 28 | `ARRAY` | `array` | Объявление массива |
+| 29 | `EOF` | — | Конец файла/программы |
+
+> `QUOTE` как отдельная лексема не возвращается — она служит сигналом для автомата
+> перейти в состояние `Q` (чтение строки). Результатом является лексема `STRING`
+> которая содержит всё что было между кавычками.
 
 ---
 
@@ -51,6 +56,7 @@
 | остальные | Символы `+ - * / = : < > ( ) { } [ ] ; "` — каждый сам по себе |
 
 > Точка `.` не является допустимым символом — числа только целые.
+> Символ `"` (QUOTE) не накапливается в буфер — он только переключает состояние автомата в `Q`.
 
 ### Состояния автомата
 
@@ -62,15 +68,15 @@
 | `P` | Прочитали `:`, ждём `=` → это `:=` |
 | `E` | Прочитали `<`, ждём `=` или `>` |
 | `H` | Прочитали `>`, ждём `=` |
-| `Q` | Читаем строку внутри кавычек |
+| `Q` | Прочитали `QUOTE` — читаем строку внутри кавычек |
 | `Z` | Финал — лексема готова, символ съеден |
 | `Z*` | Финал — лексема готова, текущий символ вернуть назад |
 | `ERR` | Ошибка — недопустимый символ |
 
 ### Таблица переходов
 
-| Состояние | `<б>` | `<ц>` | `<пр>` | `+` | `-` | `*` | `/` | `=` | `:` | `<` | `>` | `(` | `)` | `{` | `}` | `[` | `]` | `;` | `"` | `<any>` | `⊥` |
-|-----------|-------|-------|--------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|---------|-----|
+| Состояние | `<б>` | `<ц>` | `<пр>` | `+` | `-` | `*` | `/` | `=` | `:` | `<` | `>` | `(` | `)` | `{` | `}` | `[` | `]` | `;` | `"` (QUOTE) | `<any>` | `⊥` |
+|-----------|-------|-------|--------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-------------|---------|-----|
 | `S` | I | N | S | Z | Z | Z | Z | Z | P | E | H | Z | Z | Z | Z | Z | Z | Z | Q | ERR | Z |
 | `I` | I | I | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* |
 | `N` | Z* | N | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* | Z* |
@@ -81,7 +87,7 @@
 
 > `Z` — лексема готова, текущий символ принадлежит ей (съеден).
 > `Z*` — лексема готова, текущий символ вернуть во входной поток.
-> Состояние `Q` — внутри строки, накапливаем всё до закрывающей `"`.
+> Состояние `Q` — активируется лексемой `QUOTE`, накапливаем всё до закрывающей `QUOTE`.
 
 ### Какие лексемы возвращает каждое финальное состояние
 
@@ -99,7 +105,7 @@
 | `E` | всё остальное | LT (`<`) |
 | `H` | `=` | GE (`>=`) |
 | `H` | всё остальное | GT (`>`) |
-| `Q` | `"` | STRING |
+| `Q` | `"` (QUOTE) | STRING (содержимое без кавычек) |
 | `Q` | `⊥` | ERR — строка не закрыта |
 
 ---
@@ -134,7 +140,7 @@
 | `S` | `:` | `P` | 1 | Может быть `:=` — накопить |
 | `S` | `<` | `E` | 1 | Может быть `<`, `<=`, `<>` — накопить |
 | `S` | `>` | `H` | 1 | Может быть `>` или `>=` — накопить |
-| `S` | `"` | `Q` | 0 | Начало строки — кавычку не накапливаем |
+| `S` | `"` (QUOTE) | `Q` | 0 | Начало строки — QUOTE не накапливаем, переходим в Q |
 | `I` | буква/цифра | `I` | 1 | Идентификатор продолжается — накопить |
 | `I` | всё остальное | `Z*` | 3 + 4 | Конец ID — символ назад, проверить ключевые слова |
 | `N` | цифра | `N` | 1 | Число продолжается — накопить |
@@ -147,7 +153,7 @@
 | `H` | `=` | `Z` | 2 | Это `>=` — накопить и вернуть GE |
 | `H` | всё остальное | `Z*` | 3 | Это `>` — символ назад, вернуть GT |
 | `Q` | любой кроме `"` | `Q` | 1 | Внутри строки — накопить |
-| `Q` | `"` | `Z` | 2 | Конец строки — вернуть STRING |
+| `Q` | `"` (QUOTE) | `Z` | 2 | Закрывающая QUOTE — вернуть STRING |
 | `Q` | `⊥` | `ERR` | 6 | Строка не закрыта — ошибка |
 
 > `3 + 4` — вернуть символ назад и проверить таблицу ключевых слов
@@ -277,13 +283,13 @@ addend → multiplier
 
 ```
 multiplier → NUMBER
-multiplier → STRING
+multiplier → QUOTE STRING QUOTE
 multiplier → target
 multiplier → LPAREN formula RPAREN
 multiplier → MINUS multiplier
 ```
 
-> `STRING` — строку можно использовать в выражениях и выводе
+> `QUOTE STRING QUOTE` — строка всегда обёрнута в кавычки
 > `NUMBER` — только целое число
 
 ### Почему три уровня
@@ -408,7 +414,7 @@ addend'       → DIV multiplier addend'
 addend'       → ε
 
 multiplier    → NUMBER
-multiplier    → STRING
+multiplier    → QUOTE STRING QUOTE
 multiplier    → target
 multiplier    → LPAREN formula RPAREN
 multiplier    → MINUS multiplier
@@ -433,7 +439,7 @@ target        → ID | ID LBRACKET formula RBRACKET
 cond          → formula rel_op formula
 formula       → addend formula'
 addend        → multiplier addend'
-multiplier    → target | NUMBER | STRING | LPAREN formula RPAREN | MINUS multiplier
+multiplier    → target | NUMBER | QUOTE STRING QUOTE | LPAREN formula RPAREN | MINUS multiplier
 ```
 
 ### Итоговая грамматика в ННФГ
@@ -465,7 +471,7 @@ read_tail → ε
 
 cond → ID cond_id_tail
 cond → NUMBER rel_op formula
-cond → STRING rel_op formula
+cond → QUOTE STRING QUOTE rel_op formula
 cond → LPAREN formula RPAREN rel_op formula
 cond → MINUS multiplier addend' rel_op formula
 
@@ -481,7 +487,7 @@ rel_op → NE
 
 formula → ID formula_id_tail
 formula → NUMBER addend' formula'
-formula → STRING addend' formula'
+formula → QUOTE STRING QUOTE addend' formula'
 formula → LPAREN formula RPAREN addend' formula'
 formula → MINUS multiplier addend' formula'
 
@@ -490,24 +496,24 @@ formula_id_tail → addend' formula'
 
 formula' → PLUS ID formula_id_tail
 formula' → PLUS NUMBER addend' formula'
-formula' → PLUS STRING addend' formula'
+formula' → PLUS QUOTE STRING QUOTE addend' formula'
 formula' → PLUS LPAREN formula RPAREN addend' formula'
 formula' → PLUS MINUS multiplier addend' formula'
 formula' → MINUS ID formula_id_tail
 formula' → MINUS NUMBER addend' formula'
-formula' → MINUS STRING addend' formula'
+formula' → MINUS QUOTE STRING QUOTE addend' formula'
 formula' → MINUS LPAREN formula RPAREN addend' formula'
 formula' → MINUS MINUS multiplier addend' formula'
 formula' → ε
 
 addend' → MUL ID addend_id_tail
 addend' → MUL NUMBER addend'
-addend' → MUL STRING addend'
+addend' → MUL QUOTE STRING QUOTE addend'
 addend' → MUL LPAREN formula RPAREN addend'
 addend' → MUL MINUS multiplier addend'
 addend' → DIV ID addend_id_tail
 addend' → DIV NUMBER addend'
-addend' → DIV STRING addend'
+addend' → DIV QUOTE STRING QUOTE addend'
 addend' → DIV LPAREN formula RPAREN addend'
 addend' → DIV MINUS multiplier addend'
 addend' → ε
@@ -518,10 +524,17 @@ addend_id_tail → addend'
 multiplier → ID
 multiplier → ID LBRACKET formula RBRACKET
 multiplier → NUMBER
-multiplier → STRING
+multiplier → QUOTE STRING QUOTE
 multiplier → LPAREN formula RPAREN
 multiplier → MINUS multiplier
 ```
+
+> Нетерминалы `formula_id_tail` и `addend_id_tail` введены для факторизации
+> правил начинающихся с `ID` — после него возможны либо `[` (массив) либо
+> продолжение. Это обязательное условие LL(1)-анализатора.
+
+---
+
 ## 5. Семантические действия для генерации ОПС
 
 Генерация ОПС выполняется одновременно с работой LL(1)-анализатора.
@@ -597,7 +610,7 @@ multiplier → MINUS multiplier
 |------------|-------------|--------------|
 | `formula` | `ID  formula_id_tail` | `{a}  —` |
 | `formula` | `NUMBER  addend'  formula'` | `{k}  —  —` |
-| `formula` | `STRING  addend'  formula'` | `{ks}  —  —` |
+| `formula` | `QUOTE  STRING  QUOTE  addend'  formula'` | `—  {ks}  —  —  —` |
 | `formula` | `LPAREN  formula  RPAREN  addend'  formula'` | `—  —  —  —  —` |
 | `formula` | `MINUS  multiplier  addend'  formula'` | `—  —  {-'}  —` |
 | `formula_id_tail` | `LBRACKET  formula  RBRACKET  addend'  formula'` | `—  —  {i}  —  —` |
@@ -612,7 +625,7 @@ multiplier → MINUS multiplier
 | `multiplier` | `ID` | `{a}` |
 | `multiplier` | `ID  LBRACKET  formula  RBRACKET` | `{a}  —  —  {i}` |
 | `multiplier` | `NUMBER` | `{k}` |
-| `multiplier` | `STRING` | `{ks}` |
+| `multiplier` | `QUOTE  STRING  QUOTE` | `—  {ks}  —` |
 | `multiplier` | `LPAREN  formula  RPAREN` | `—  —  —` |
 | `multiplier` | `MINUS  multiplier` | `—  {-'}` |
 
@@ -622,7 +635,7 @@ multiplier → MINUS multiplier
 |------------|-------------|--------------|
 | `cond` | `ID  cond_id_tail` | `{a}  —` |
 | `cond` | `NUMBER  rel_op  formula` | `{k}  —  —` |
-| `cond` | `STRING  rel_op  formula` | `{ks}  —  —` |
+| `cond` | `QUOTE  STRING  QUOTE  rel_op  formula` | `—  {ks}  —  —  —` |
 | `cond` | `LPAREN  formula  RPAREN  rel_op  formula` | `—  —  —  —  —` |
 | `cond_id_tail` | `LBRACKET  formula  RBRACKET  rel_op  formula` | `—  —  {i}  —  —` |
 | `cond_id_tail` | `rel_op  formula` | `—  —` |
@@ -654,7 +667,7 @@ multiplier → MINUS multiplier
 | `input_op` | `READ  LPAREN  ID  RPAREN  SEMICOLON` | `—  —  {a}  {r}  —` |
 | `input_op` | `READ  LPAREN  ID  LBRACKET  formula  RBRACKET  RPAREN  SEMICOLON` | `—  —  {a}  —  —  {i}  {r}  —` |
 | `output_op` | `WRITE  LPAREN  formula  RPAREN  SEMICOLON` | `—  —  —  {w}  —` |
-| `output_op` | `WRITE  LPAREN  STRING  RPAREN  SEMICOLON` | `—  —  {ks}  {ws}  —` |
+| `output_op` | `WRITE  LPAREN  QUOTE  STRING  QUOTE  RPAREN  SEMICOLON` | `—  —  —  {ks}  —  {ws}  —` |
 
 #### Составной оператор (блок)
 
@@ -735,7 +748,7 @@ multiplier → MINUS multiplier
 x := -5 + a;
 ```
 
-ОПС: `x  5  -'  a  +  :=`
+ОПС: `x  5  –'  a  +  :=`
 
 | Индекс | Тип | Значение |
 |--------|-----|----------|
@@ -831,7 +844,7 @@ if (x <> 0) {
 
 ---
 
-### Пример 5. Ввод строки и вывод с условием
+### Пример 5. Ввод и вывод с условием
 
 ```
 read(n);
@@ -861,4 +874,3 @@ else {
 | 11 | `TYPE_STR_CONST` | `"not positive"` (← m1) |
 | 12 | `TYPE_OP` | `OP_WS` |
 | 13 | — | — (← m2) |
-
