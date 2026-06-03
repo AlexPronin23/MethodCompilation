@@ -1,0 +1,14 @@
+C:\Users\Alex\OneDrive\Desktop\Compilation\Compilation\bin\Debug\net8.0\Compilation.exe
+C:\Users\Alex\OneDrive\Desktop\Compilation\Compilation\bin\Debug\net8.0\Compilation.deps.json
+C:\Users\Alex\OneDrive\Desktop\Compilation\Compilation\bin\Debug\net8.0\Compilation.runtimeconfig.json
+C:\Users\Alex\OneDrive\Desktop\Compilation\Compilation\bin\Debug\net8.0\Compilation.dll
+C:\Users\Alex\OneDrive\Desktop\Compilation\Compilation\bin\Debug\net8.0\Compilation.pdb
+C:\Users\Alex\OneDrive\Desktop\Compilation\Compilation\obj\Debug\net8.0\Compilation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alex\OneDrive\Desktop\Compilation\Compilation\obj\Debug\net8.0\Compilation.AssemblyInfoInputs.cache
+C:\Users\Alex\OneDrive\Desktop\Compilation\Compilation\obj\Debug\net8.0\Compilation.AssemblyInfo.cs
+C:\Users\Alex\OneDrive\Desktop\Compilation\Compilation\obj\Debug\net8.0\Compilation.csproj.CoreCompileInputs.cache
+C:\Users\Alex\OneDrive\Desktop\Compilation\Compilation\obj\Debug\net8.0\Compilation.dll
+C:\Users\Alex\OneDrive\Desktop\Compilation\Compilation\obj\Debug\net8.0\refint\Compilation.dll
+C:\Users\Alex\OneDrive\Desktop\Compilation\Compilation\obj\Debug\net8.0\Compilation.pdb
+C:\Users\Alex\OneDrive\Desktop\Compilation\Compilation\obj\Debug\net8.0\Compilation.genruntimeconfig.cache
+C:\Users\Alex\OneDrive\Desktop\Compilation\Compilation\obj\Debug\net8.0\ref\Compilation.dll

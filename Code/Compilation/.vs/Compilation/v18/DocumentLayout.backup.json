@@ -1,0 +1,215 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|c:\\users\\alex\\onedrive\\desktop\\compilation\\compilation\\parser\\parser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|solutionrelative:compilation\\parser\\parser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|c:\\users\\alex\\onedrive\\desktop\\compilation\\compilation\\interpreter\\interpreter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|solutionrelative:compilation\\interpreter\\interpreter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|c:\\users\\alex\\onedrive\\desktop\\compilation\\compilation\\lexer\\lexer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|solutionrelative:compilation\\lexer\\lexer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|c:\\users\\alex\\onedrive\\desktop\\compilation\\compilation\\lexer\\models\\tokentype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|solutionrelative:compilation\\lexer\\models\\tokentype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|c:\\users\\alex\\onedrive\\desktop\\compilation\\compilation\\lexer\\models\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|solutionrelative:compilation\\lexer\\models\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|c:\\users\\alex\\onedrive\\desktop\\compilation\\compilation\\interpreter\\stackitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|solutionrelative:compilation\\interpreter\\stackitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|c:\\users\\alex\\onedrive\\desktop\\compilation\\compilation\\interpreter\\runtimeexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|solutionrelative:compilation\\interpreter\\runtimeexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|c:\\users\\alex\\onedrive\\desktop\\compilation\\compilation\\lexer\\lexerexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|solutionrelative:compilation\\lexer\\lexerexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|c:\\users\\alex\\onedrive\\desktop\\compilation\\compilation\\parser\\parserexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|solutionrelative:compilation\\parser\\parserexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|c:\\users\\alex\\onedrive\\desktop\\compilation\\compilation\\parser\\opselement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|solutionrelative:compilation\\parser\\opselement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|c:\\users\\alex\\onedrive\\desktop\\compilation\\compilation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|Compilation\\Compilation.csproj|solutionrelative:compilation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "StackItem.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Interpreter\\StackItem.cs",
+              "RelativeDocumentMoniker": "Compilation\\Interpreter\\StackItem.cs",
+              "ToolTip": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Interpreter\\StackItem.cs",
+              "RelativeToolTip": "Compilation\\Interpreter\\StackItem.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwDAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T11:28:59.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RuntimeException.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Interpreter\\RuntimeException.cs",
+              "RelativeDocumentMoniker": "Compilation\\Interpreter\\RuntimeException.cs",
+              "ToolTip": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Interpreter\\RuntimeException.cs",
+              "RelativeToolTip": "Compilation\\Interpreter\\RuntimeException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T11:28:58.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TokenType.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Lexer\\Models\\TokenType.cs",
+              "RelativeDocumentMoniker": "Compilation\\Lexer\\Models\\TokenType.cs",
+              "ToolTip": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Lexer\\Models\\TokenType.cs",
+              "RelativeToolTip": "Compilation\\Lexer\\Models\\TokenType.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAA9wA8AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T11:28:48.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Token.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Lexer\\Models\\Token.cs",
+              "RelativeDocumentMoniker": "Compilation\\Lexer\\Models\\Token.cs",
+              "ToolTip": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Lexer\\Models\\Token.cs",
+              "RelativeToolTip": "Compilation\\Lexer\\Models\\Token.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T11:28:41.319Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LexerException.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Lexer\\LexerException.cs",
+              "RelativeDocumentMoniker": "Compilation\\Lexer\\LexerException.cs",
+              "ToolTip": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Lexer\\LexerException.cs",
+              "RelativeToolTip": "Compilation\\Lexer\\LexerException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T11:28:35.762Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Lexer.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Lexer\\Lexer.cs",
+              "RelativeDocumentMoniker": "Compilation\\Lexer\\Lexer.cs",
+              "ToolTip": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Lexer\\Lexer.cs",
+              "RelativeToolTip": "Compilation\\Lexer\\Lexer.cs",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAswJQAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T11:26:57.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Interpreter.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Interpreter\\Interpreter.cs",
+              "RelativeDocumentMoniker": "Compilation\\Interpreter\\Interpreter.cs",
+              "ToolTip": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Interpreter\\Interpreter.cs",
+              "RelativeToolTip": "Compilation\\Interpreter\\Interpreter.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwAUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T11:26:44.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Parser.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Parser\\Parser.cs",
+              "RelativeDocumentMoniker": "Compilation\\Parser\\Parser.cs",
+              "ToolTip": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Parser\\Parser.cs",
+              "RelativeToolTip": "Compilation\\Parser\\Parser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJ0BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T11:18:42.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ParserException.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Parser\\ParserException.cs",
+              "RelativeDocumentMoniker": "Compilation\\Parser\\ParserException.cs",
+              "ToolTip": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Parser\\ParserException.cs",
+              "RelativeToolTip": "Compilation\\Parser\\ParserException.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAQwBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T11:28:22.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "OpsElement.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Parser\\OpsElement.cs",
+              "RelativeDocumentMoniker": "Compilation\\Parser\\OpsElement.cs",
+              "ToolTip": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Parser\\OpsElement.cs",
+              "RelativeToolTip": "Compilation\\Parser\\OpsElement.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAQwDcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T11:26:40.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Program.cs",
+              "RelativeDocumentMoniker": "Compilation\\Program.cs",
+              "ToolTip": "C:\\Users\\Alex\\OneDrive\\Desktop\\Compilation\\Compilation\\Program.cs",
+              "RelativeToolTip": "Compilation\\Program.cs",
+              "ViewState": "AgIAAOkAAAAAAAAAAAAswAUBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T10:20:54.204Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
